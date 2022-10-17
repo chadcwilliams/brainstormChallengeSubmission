@@ -22,9 +22,6 @@ $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlph
   
   
   
-
-$$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlphaPower} $$
-
 ![Alt text](/Images/FixedArchitecture.png "Figure 2. Example Architecture")
 **Figure 1.** An example architecture.
 
@@ -32,12 +29,6 @@ $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlph
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
-
-
-
-
-
-
 
 
 
