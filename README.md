@@ -19,6 +19,9 @@ $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlph
   We then used these EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach results in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. 
 
   We first determined an architecture and then determined model predictability using the leave-one-out method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph [[[see Figure 1 for an example architecture & equation]]]. As this process included all data and not only a training set, the architecture would be biased, but further investigations will be necessary to determine how much of a bias it would have. We then iteratively fit this fixed architecture’s coefficients, with each iteration using a training set containing all but one participant. On each iteration, we classified the remaining participant to determine classification accuracy [[[see Figure 2 for an example of the different coefficients while keeping the architecture stable]]]. The averaged accuracy was used as our model’s predictability metric. 
+  
+![Alt text](/Images/FixedArchitecture.png "Figure 1. Example Architecture")
+![Alt text](/Images/ArchitectureCoeffs.png "Figure 2. Example Architecture Coefficients")
 
 ## References
 
