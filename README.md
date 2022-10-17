@@ -24,27 +24,29 @@ $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 
+**Example Architechture:**
 $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlphaPower} $$
-![Alt text](/Images/FixedArchitecture.png "Figure 1. Example Architecture")
-Figure 1. An example architecture.
 
-Equation for architecture A in Figure 2
+![Alt text](/Images/FixedArchitecture.png "Figure 1. Example Architecture")
+**Figure 1.** An example architecture.
+
+**Equation for architecture A in Figure 2:**
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
   
-Equation for architecture B in Figure 2
+**Equation for architecture B in Figure 2:**
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 
-Equation for architecture C in Figure 2
+**Equation for architecture C in Figure 2:**
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 
 ![Alt text](/Images/ArchitectureCoeffs.png "Figure 2. Example Architecture Coefficients")
-figure 2. An example of changing coefficients in a fixed architecture.
+**figure 2.** An example of changing coefficients in a fixed architecture.
 
 ## References
 
