@@ -15,6 +15,8 @@ $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlph
 
   The same procedure was followed for both T1 and Tx (Tx = T2 for hypothesis 1 and T3 for hypothesis 2). Finally, we created a difference between T1 and Tx (Tx – T1), leaving us with two EEG features per participant, per hypothesis.
   
+$$ EEGFeature<sub>Difference</sub> = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlphaPower} $$
+  
 ## Differentiable Architecture Search
   We then used these EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach results in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. 
 
