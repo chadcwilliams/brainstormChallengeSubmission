@@ -10,6 +10,7 @@ Here, we have attempted to classify the responder/non-responder outcomes in two 
   To extract EEG features for classification in this project, we began by conducting Fast Fourier Transforms (FFT) on each trial of the processed data for each electrode and participant. From these data, we extracted alpha power (8 to 13.5 Hz for hypothesis 1 and 10 to 13.5 Hz for hypothesis 2) for four quadrants of the head: frontal left (F7 electrode), frontal right (F8 electrode), parietal left (P7 electrode), and parietal right (P8 electrode). Additionally, we here averaged across trials for each participant. 
   
   Following this, we determined two EEG features of interest: frontal alpha asymmetry and parietal alpha asymmetry, computed as. Note that these analyses are roughly in line with the methodology of Koo et al., 2019. For these measures, we took the difference between the left and right quadrants (right minus left), normalized by their sum for the corresponding analyses (e.g., frontal asymmetry subtracted the frontal right quadrant from the frontal left quadrant). [[[ADD EQUATION? (left-right)/(left+right)]]].
+  $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlphaPower} $$
   
   The same procedure was followed for both T1 and Tx (Tx = T2 for hypothesis 1 and T3 for hypothesis 2). Finally, we created a difference between T1 and Tx (Tx – T1), leaving us with two EEG features per participant, per hypothesis.
   
