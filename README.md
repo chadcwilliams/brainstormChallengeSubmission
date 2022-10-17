@@ -34,7 +34,7 @@ $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 <hr style="border:2px solid gray">
 
 ![Alt text](/Images/ArchitectureCoeffs.png "Figure 2. Example Architecture Coefficients")
-**figure 2.** An example of changing coefficients in a fixed architecture.
+**Figure 2.** An example of changing coefficients in a fixed architecture.
 
 
 **Equation for architecture A in Figure 2:**
