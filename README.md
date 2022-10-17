@@ -21,12 +21,11 @@ $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlph
   We first determined an architecture and then determined model predictability using the leave-one-out method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph [[[see Figure 1 for an example architecture & equation]]]. As this process included all data and not only a training set, the architecture would be biased, but further investigations will be necessary to determine how much of a bias it would have. We then iteratively fit this fixed architecture’s coefficients, with each iteration using a training set containing all but one participant. On each iteration, we classified the remaining participant to determine classification accuracy [[[see Figure 2 for an example of the different coefficients while keeping the architecture stable]]]. The averaged accuracy was used as our model’s predictability metric. 
   
 <hr style="border:2px solid gray">
-<hr style="border:2px solid gray">
   
 ![Alt text](/Images/FixedArchitecture.png "Figure 2. Example Architecture")
 **Figure 1.** An example architecture.
 
-
+**Equation for architecture in Figure 1:**
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
@@ -52,6 +51,8 @@ $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
+
+<hr style="border:2px solid gray">
 
 ## References
 
