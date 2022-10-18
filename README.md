@@ -62,5 +62,13 @@ Liu, H., Simonyan, K., & Yang, Y. (2018). Darts: Differentiable architecture sea
 Musslick, S. (2021). Recovering quantitative models of human information processing with differentiable architecture search. In Proceedings of the 43rd Annual Conference of the Cognitive Science Society (pp. 348–354). Vienna, AT. arXiv: https://arxiv.org/abs/2103.13939
 
 ## GitHub Files Dictionary
-______: 
-______: 
+
+**Training:**
+
+**williamsBrainstormChallenge_EEGFeaturesExtraction.ipynb:** File that extracts EEG features from the training set of participants and produces the williamsBrainstormChallenge_T1vsT3Features.csv file.
+
+**williamsBrainstormChallenge_DeterminingArchitecture.ipynb:** The main script to determine a DARTS achitecture and thus the equation linking predictors to outcomes.
+
+**Validation:**
+
+**williamsBrainstormChallenge_DeterminingValidationOutcomes:** File that extracts EEG features from the validation set of participants and produces the williamsBrainstormChallenge_T1vsT3ValidationOutcomes.csv file. Further, it uses the equation as determined by williamsBrainstormChallenge_DeterminingArchitecture.ipynb (hard-coded) to create outcome predictions of the validation set, stored in file williamsBrainstormChallenge_T1T3(H2)PredictedOutcomes.csv (this file is the file of interest for the challenge)
