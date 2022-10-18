@@ -29,6 +29,7 @@ We first determined an architecture and then determined model predictability usi
 
 $k1 = logistic(0.37 * x1 + -0.69) + sin(1.88 * x2 + 1.72)$  
 $y1 = 1.45 * k1 + -0.9420783$  
+$p(detected) = sigmoid(y1)$  
 
 <hr style="border:2px solid gray">
 
@@ -38,18 +39,21 @@ We then followed a leave-one-out cross-validation method in that we iteratively 
 
 $k1 = logistic(0.32 * x1 + -0.68) + sin(2.46 * x2 + 1.15)$  
 $y1 = 1.34 * k1 + -0.93771935$  
-  
+$p(detected) = sigmoid(y1)$  
+
   
 **Equation for architecture when predicting participant 20:**
 
 $k1 = logistic(0.32 * x1 + -0.73) + sin(2.58 * x2 + 1.34)$  
 $y1 = 1.31 * k1 + -1.0930861$  
+$p(detected) = sigmoid(y1)$  
 
 
 **Equation for architecture when predicting participant 30:**
 
 $k1 = logistic(0.30 * x1 + -0.71) + sin(2.57 * x2 + 1.25)$  
 $y1 = 1.45 * k1 + -1.0103492$  
+$p(detected) = sigmoid(y1)$  
 
 <hr style="border:2px solid gray">
 
