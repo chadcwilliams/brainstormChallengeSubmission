@@ -18,10 +18,14 @@ In total, our procedure left us with two EEG features per participant, which wer
 We used the extracted EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach resulted in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes (here, responders versus non-responders) via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. 
 
 We first determined an architecture and then determined model predictability using the leave-one-out cross-validation method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph, see Figure 1 with accompanying equation for the architechture. As this process included all data and not only a training set, the architecture will be biased but further investigations will be necessary to determine to what degree. 
+
+<hr style="border:2px solid gray">
   
 ![Alt text](/Images/williamsBrainstormChallenge_Figure1.svg "Figure 2. Example Architecture")
 
 **Figure 1.** Computation Graph Representation of Classification Equation.
+
+<hr style="border:2px solid gray">
 
 **Equation for architecture in Figure 1:**
 
@@ -48,6 +52,7 @@ $y1 = -1.93 * k1 + -0.08586005$
 $k1 = sin(1.93 * x2 + -2.59)$  
 $y1 = -2.00 * k1 + 0.11603105$  
 
+<hr style="border:2px solid gray">
 
 ## References
 
