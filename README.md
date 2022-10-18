@@ -20,36 +20,33 @@ We used the extracted EEG features as predictors in a Differentiable Architectur
 We first determined an architecture and then determined model predictability using the leave-one-out cross-validation method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph, see Figure 1 with accompanying equation for the architechture. As this process included all data and not only a training set, the architecture will be biased but further investigations will be necessary to determine to what degree. 
   
 ![Alt text](/Images/williamsBrainstormChallenge_Figure1.svg "Figure 2. Example Architecture")
+
 **Figure 1.** An example architecture.
 
 **Equation for architecture in Figure 1:**
 
-$k1 = ReLU(x1) + cos(x2)$  
-$k2 = ReLU(x1) + cos(x2) + tanh(k1)$  
-$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$  
+$k1 = sin(2.00 * x2 + -2.30)$  
+$y1 = -2.14 * k1 + 0.11291785$  
 
 
 We then followed a leave-one-out cross-validation method in that we iteratively fit this fixed architecture’s coefficients for all but one participant and then predicted the outcome of the remaining participant, see the following three example equations that signify different iterations of this process. The averaged accuracy was used as our model’s predictability metric.
 
 **Equation for architecture when predicting participant 10:**
 
-$k1 = ReLU(x1) + cos(x2)$  
-$k2 = ReLU(x1) + cos(x2) + tanh(k1)$  
-$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$  
+$k1 = sin(2.23 * x2 + -1.51)$  
+$y1 = -1.90 * k1 + -0.07413537$  
   
   
 **Equation for architecture when predicting participant 20:**
 
-$k1 = ReLU(x1) + cos(x2)$  
-$k2 = ReLU(x1) + cos(x2) + tanh(k1)$  
-$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$  
+$k1 = sin(2.00 * x2 + -2.67)$  
+$y1 = -1.93 * k1 + -0.08586005$  
 
 
 **Equation for architecture when predicting participant 30:**
 
-$k1 = ReLU(x1) + cos(x2)$  
-$k2 = ReLU(x1) + cos(x2) + tanh(k1)$  
-$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$  
+$k1 = sin(1.93 * x2 + -2.59)$  
+$y1 = -2.00 * k1 + 0.11603105$  
 
 
 ## References
