@@ -19,7 +19,7 @@ We used the extracted EEG features as predictors in a Differentiable Architectur
 
 We first determined an architecture and then determined model predictability using the leave-one-out cross-validation method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph, see Figure 1 with accompanying equation for the architechture. As this process included all data and not only a training set, the architecture will be biased but further investigations will be necessary to determine to what degree. 
   
-![Alt text](/Images/FixedArchitecture.png "Figure 2. Example Architecture")
+![Alt text](/Images/williamsBrainstormChallenge_Figure1.svg "Figure 2. Example Architecture")
 **Figure 1.** An example architecture.
 
 **Equation for architecture in Figure 1:**
