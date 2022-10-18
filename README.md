@@ -25,13 +25,12 @@ We first determined an architecture and then determined model predictability usi
 
 **Figure 1.** Computation Graph Representation of Classification Equation.
 
-<hr style="border:2px solid gray">
-
 **Equation for architecture in Figure 1:**
 
 $k1 = sin(2.00 * x2 + -2.30)$  
 $y1 = -2.14 * k1 + 0.11291785$  
 
+<hr style="border:2px solid gray">
 
 We then followed a leave-one-out cross-validation method in that we iteratively fit this fixed architecture’s coefficients for all but one participant and then predicted the outcome of the remaining participant, see the following three example equations that signify different iterations of this process. The averaged accuracy was used as our model’s predictability metric.
 
