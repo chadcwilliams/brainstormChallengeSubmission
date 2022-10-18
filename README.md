@@ -15,11 +15,9 @@ $$ EEGFeature_{Difference} = {EEGFeatures_{T3} - EEGFeatures_{T1} \over EEGFeatu
 In total, our procedure left us with two EEG features per participant, which were then used as predictors in DARTS.
   
 ## Differentiable Architecture Search
-  We then used these EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach results in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. 
+We used the extracted EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach resulted in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes (here, responders versus non-responders) via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. 
 
-  We first determined an architecture and then determined model predictability using the leave-one-out method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph [[[see Figure 1 for an example architecture & equation]]]. As this process included all data and not only a training set, the architecture would be biased, but further investigations will be necessary to determine how much of a bias it would have. We then iteratively fit this fixed architecture’s coefficients, with each iteration using a training set containing all but one participant. On each iteration, we classified the remaining participant to determine classification accuracy [[[see Figure 2 for an example of the different coefficients while keeping the architecture stable]]]. The averaged accuracy was used as our model’s predictability metric. 
-  
-<hr style="border:2px solid gray">
+We first determined an architecture and then determined model predictability using the leave-one-out cross-validation method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph, see Figure 1 with accompanying equation for the architechture. As this process included all data and not only a training set, the architecture will be biased but further investigations will be necessary to determine to what degree. 
   
 ![Alt text](/Images/FixedArchitecture.png "Figure 2. Example Architecture")
 **Figure 1.** An example architecture.
@@ -29,7 +27,7 @@ $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 
-<hr style="border:2px solid gray">
+We then followed a leave-one-out cross-validation method in that we iteratively fit this fixed architecture’s coefficients for all but one participant and then predicted the outcome of the remaining participant, see the following three example equations that signify different iterations of this process. The averaged accuracy was used as our model’s predictability metric.
 
 **Equation for architecture when predicting participant 10:**
 $$k1 = ReLU(x1) + cos(x2)$$
@@ -56,3 +54,6 @@ Liu, H., Simonyan, K., & Yang, Y. (2018). Darts: Differentiable architecture sea
 
 Musslick, S. (2021). Recovering quantitative models of human information processing with differentiable architecture search. In Proceedings of the 43rd Annual Conference of the Cognitive Science Society (pp. 348–354). Vienna, AT. arXiv: https://arxiv.org/abs/2103.13939
 
+## GitHub Files Dictionary
+______: 
+______: 
