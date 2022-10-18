@@ -34,6 +34,7 @@ $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 We then followed a leave-one-out cross-validation method in that we iteratively fit this fixed architecture’s coefficients for all but one participant and then predicted the outcome of the remaining participant, see the following three example equations that signify different iterations of this process. The averaged accuracy was used as our model’s predictability metric.
 
 **Equation for architecture when predicting participant 10:**
+
 $k1 = ReLU(x1) + cos(x2)$  
 $k2 = ReLU(x1) + cos(x2) + tanh(k1)$  
 $y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$  
