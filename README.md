@@ -1,12 +1,6 @@
 # Williams, C.C., Holland, J., & Musslick, S. (2022). Brainstorm Challenge Submission
 
-Here, we sought to determine whether we could classify responders from non-responders undergoing a TMS therapy as a method of treating depression. This therapy includes four time points T1 to T4 where T1 and T2 are pre and post intervention on the first session and T3 and T4 are pre and post intervention on the final session. There were two analyses of interest wherein Hypothesis 1 investigated whether there were any immediate effects of the intervention and thus compared the pre and post of the first session (T1 vs T2) and Hypothesis 2 investigated whether there were any long-term effects of the intervention by comparing the first session to the final session (focusing on pre-intervention: T1 vs T3). Although we investigated both of these hypoteses, we were only able to classify Hypothesis 2 and thus it is solely reported here. 
-
-
--Hypothesis 1: Within the first session (T1 vs T2)
-
--Hypothesis 2: Across sessions (T1 vs T3)
-  
+Here, we sought to determine whether we could classify responders from non-responders undergoing a TMS therapy as a method of treating depression by utilizing electroencephalographic (EEG) measures of the brain. This therapy includes four time points T1 to T4 where T1 and T2 are pre and post intervention on the first session and T3 and T4 are pre and post intervention on the final session. There were two analyses of interest wherein Hypothesis 1 investigated whether there were any immediate effects of the intervention and thus compared the pre and post of the first session (T1 vs T2) and Hypothesis 2 investigated whether there were any long-term effects of the intervention by comparing the first session to the final session (focusing on pre-intervention: T1 vs T3). Although we investigated both of these hypotheses, we were only able to classify Hypothesis 2 and thus it is solely reported here. Our approach to classify treatment outcome included first extracting EEG features of pre-processed data and then using these features within a differentiable architecture search (DARTS).
   
 ## EEG Feature Extraction [[[CHECK ALPHA FREQS]]]
   To extract EEG features for classification in this project, we began by conducting Fast Fourier Transforms (FFT) on each trial of the processed data for each electrode and participant. From these data, we extracted alpha power (8 to 13.5 Hz for hypothesis 1 and 10 to 13.5 Hz for hypothesis 2) for four quadrants of the head: frontal left (F7 electrode), frontal right (F8 electrode), parietal left (P7 electrode), and parietal right (P8 electrode). Additionally, we here averaged across trials for each participant. 
