@@ -4,15 +4,15 @@ Here, we sought to determine whether we could classify responders from non-respo
 ## EEG Feature Extraction
 To extract EEG features for classification in this project, we began by conducting Fast Fourier Transforms (FFT) on each trial of the pre-processed data for each electrode and participant. From these data, we averaged across trials and then extracted averaged alpha power (8 to 13.5 Hz) for four quadrants of the head: frontal left (F7 electrode), frontal right (F8 electrode), parietal left (P7 electrode), and parietal right (P8 electrode).
   
-Following this, we determined two EEG features of interest: frontal alpha asymmetry and parietal alpha asymmetry - these analyses were roughly in line with EEG literature classifying depression, such as the work of Koo et al., 2019. For each measure, we took the difference between the left and right quadrants (right minus left) and normalized by their sum:
+Following the extraction of alpha power, we determined two EEG features of interest: frontal alpha asymmetry and parietal alpha asymmetry - these analyses were roughly in line with EEG literature classifying depression, such as the work of Koo et al., 2019. For each measure, we took the difference between the left and right quadrants (right minus left), normalized by their sum:
   
 $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlphaPower}$$
 
-The same procedure was followed for both T1 and T3 and then we created a difference between T1 and T3, again normalized by their sum:
+The alpha assymetry extraction procedure was followed for both T1 and T3 and then we created a difference between T1 and T3, again normalized by their sum:
   
-$$ EEGFeature_{Difference} = {EEGFeatures_{Tx} - EEGFeatures_{T1} \over EEGFeatures_{Tx} + EEGFeatures_{T1}} $$
+$$ EEGFeature_{Difference} = {EEGFeatures_{T3} - EEGFeatures_{T1} \over EEGFeatures_{T3} + EEGFeatures_{T1}} $$
 
-In total, our procedures left us with two EEG features for each participant, which were then used as predictors in DARTS.
+In total, our procedure left us with two EEG features per participant, which were then used as predictors in DARTS.
   
 ## Differentiable Architecture Search
   We then used these EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach results in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. 
