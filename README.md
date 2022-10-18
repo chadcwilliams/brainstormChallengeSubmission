@@ -1,5 +1,20 @@
-# Williams et al: Brainstorm Challenge Submission
-Here, we have attempted to classify the responder/non-responder outcomes in two ways:
+# Williams, C. C., Holland, J., Musslick, S. Brainstorm Challenge Submission
+
+Here, we sought to determine whether we could predict the classification of responders from non-responders in 
+
+
+
+Here, we have attempted to classify the responder/non-responder outcomes when considering Hypothesis 2: comparing T1 to T3. 
+
+We have a user input here that can be modified to be either 'within' or 'across'. As you know the research design includes four time points T1 to T4 where T1 and T2 are pre and post intervention on the first session and T3 and T4 are pre and post intervention on the final session. 
+
+Our 'within' analysis investigates whether there are any immediate effects of the intervention and thus compares the pre and post of the first session (T1 vs T2). Within refers to the analysis of data within a session.
+
+Our 'across' analysis investigates whether there are any long-term effects of the intervention by comparing the first session to the final session (focusing on pre-intervention: T1 vs T3). Across refers to the analysis of data across sessions.
+
+The remainder of this notebook will depend on this input, so to see each result would be to run the remainder twice.
+
+
 
 -Hypothesis 1: Within the first session (T1 vs T2)
 
@@ -33,23 +48,18 @@ $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 
 <hr style="border:2px solid gray">
-<hr style="border:2px solid gray">
 
-![Alt text](/Images/ArchitectureCoeffs.png "Figure 2. Example Architecture Coefficients")
-**Figure 2.** An example of changing coefficients in a fixed architecture.
-
-
-**Equation for architecture A in Figure 2:**
+**Equation for architecture when predicting participant 10:**
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
   
-**Equation for architecture B in Figure 2:**
+**Equation for architecture when predicting participant 20:**
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
 
-**Equation for architecture C in Figure 2:**
+**Equation for architecture when predicting participant 30:**
 $$k1 = ReLU(x1) + cos(x2)$$
 $$k2 = ReLU(x1) + cos(x2) + tanh(k1)$$
 $$y1 = -0.24 * k1 + -0.16 * k2 + 0.659459$$
