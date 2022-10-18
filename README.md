@@ -21,7 +21,7 @@ We first determined an architecture and then determined model predictability usi
   
 ![Alt text](/Images/williamsBrainstormChallenge_Figure1.svg "Figure 2. Example Architecture")
 
-**Figure 1.** An example architecture.
+**Figure 1.** Computational Graph Representation of Classification Equation.
 
 **Equation for architecture in Figure 1:**
 
