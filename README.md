@@ -15,7 +15,7 @@ $$ EEGFeature_{Difference} = {EEGFeatures_{T3} - EEGFeatures_{T1} \over EEGFeatu
 In total, our procedure left us with two EEG features per participant, which were then used as predictors in DARTS.
   
 ## Differentiable Architecture Search
-We used the extracted EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach resulted in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes (here, responders versus non-responders) via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. 
+We used the extracted EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach resulted in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes (here, responders versus non-responders) via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. An additional advantage to using DARTS is that it has a feature selection mechanism in that it may remove edges between predictors and nodes. Indeed, this occured in the current implementation of DARTS wherein it predicted outcomes by using only one of the two predictors provided. 
 
 We first determined an architecture and then determined model predictability using the leave-one-out cross-validation method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph, see Figure 1 with accompanying equation for the architechture. As this process included all data and not only a training set, the architecture will be biased but further investigations will be necessary to determine to what degree. 
 
@@ -33,7 +33,7 @@ $p(detected) = sigmoid(y1)$
 
 <hr style="border:2px solid gray">
 
-We then followed a leave-one-out cross-validation method in that we iteratively fit this fixed architecture’s coefficients for all but one participant and then predicted the outcome of the remaining participant, see the following three example equations that signify different iterations of this process. The averaged accuracy was used as our model’s predictability metric - here, the resulting accuracy was **71.43%**
+We then followed a leave-one-out cross-validation method in that we iteratively fit this fixed architecture’s coefficients (here, there the architecture had 4 coefficients) for all but one participant and then predicted the outcome of the remaining participant, see the following three example equations that signify different iterations of this process. The averaged accuracy was used as our model’s predictability metric - here, the resulting accuracy was **71.43%**
 
 **Equation for architecture when predicting participant 10:**
 
@@ -71,8 +71,10 @@ Musslick, S. (2021). Recovering quantitative models of human information process
 
 **williamsBrainstormChallenge_EEGFeaturesExtraction.ipynb:** File that extracts EEG features from the training set of participants and produces the williamsBrainstormChallenge_T1vsT3Features.csv file.
 
-**williamsBrainstormChallenge_DeterminingArchitecture.ipynb:** The main script to determine a DARTS achitecture and thus the equation linking predictors to outcomes.
+**williamsBrainstormChallenge_DeterminingArchitecture.ipynb:** The main script to determine a DARTS achitecture and thus the equation linking predictors to outcomes. This script also produces the file williamsBrainstormChallenge_Architecture.pickle, which contains the architecture and is used by the williamsBrainstormChallenge_DeterminingValidationOutcomes to predict outcomes of the validation set.
+
+**williamsBrainstormChallenge_DeterminingArchitecture(WithOutput).ipynb:** Same as above but including the outputs of the current model.
 
 **Validation:**
 
-**williamsBrainstormChallenge_DeterminingValidationOutcomes:** File that extracts EEG features from the validation set of participants and produces the williamsBrainstormChallenge_T1vsT3ValidationOutcomes.csv file. Further, it uses the equation as determined by williamsBrainstormChallenge_DeterminingArchitecture.ipynb (hard-coded) to create outcome predictions of the validation set, stored in file williamsBrainstormChallenge_T1T3(H2)PredictedOutcomes.csv (this file is the file of interest for the challenge)
+**williamsBrainstormChallenge_DeterminingValidationOutcomes.ipynb:** File that extracts EEG features from the validation set of participants and produces the williamsBrainstormChallenge_T1vsT3ValidationOutcomes.csv file. Further, it uses the williamsBrainstormChallenge_Architecture.pickle file, as produced by williamsBrainstormChallenge_DeterminingArchitecture.ipynb, to predict outcomes of the validation set, stored in file williamsBrainstormChallenge_T1T3(H2)PredictedOutcomes.csv (this is the file of interest for the challenge).
