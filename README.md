@@ -8,14 +8,14 @@ Following the extraction of alpha power, we determined two EEG features of inter
   
 $$ EEGFeature = {RightAlphaPower - LeftAlphaPower \over RightAlphaPower+LeftAlphaPower}$$
 
-The alpha assymetry extraction procedure was followed for both T1 and T3 and then we created a difference between T1 and T3, again normalized by their sum:
+The alpha asymmetry extraction procedure was followed for both T1 and T3 and then we created a difference between T1 and T3, again normalized by their sum:
   
 $$ EEGFeature_{Difference} = {EEGFeatures_{T3} - EEGFeatures_{T1} \over EEGFeatures_{T3} + EEGFeatures_{T1}} $$
 
 In total, our procedure left us with two EEG features per participant, which were then used as predictors in DARTS.
   
 ## Differentiable Architecture Search
-We used the extracted EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach resulted in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes (here, responders versus non-responders) via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. An additional advantage to using DARTS is that it has a feature selection mechanism in that it may remove edges between predictors and nodes. Indeed, this occured in the current implementation of DARTS wherein it predicted outcomes by using only one of the two predictors provided. Specifically, it only used parietal alpha assymetry to predict outcomes. 
+We used the extracted EEG features as predictors in a Differentiable Architecture Search (DARTS; Liu et al., 2019; Musslick et al., 2021). This approach resulted in an interpretable equation that maps the predictors (here, EEG features) to the classification outcomes (here, responders versus non-responders) via a computation graph. The advantage of this approach is that the resulting equation is explicit and thus interpretable, in contrast to black-box approaches such as neural networks. An additional advantage to using DARTS is that it has a feature selection mechanism in that it may remove edges between predictors and nodes. Indeed, this occured in the current implementation of DARTS wherein it predicted outcomes by using only one of the two predictors provided. Specifically, it only used parietal alpha asymmetry to predict outcomes. 
 
 We first determined an architecture and then determined model predictability using the leave-one-out cross-validation method. Specifically, we began by training DARTS using all data in order to develop an architecture – i.e., an equation in the form of a computation graph, see Figure 1 with accompanying equation for the architechture. The resulting architecture contained four coefficients.
 
